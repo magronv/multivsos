@@ -46,10 +46,15 @@ To compute a sums of squares decomposition of f, you can type:
 
 `f := x^4 + x^3*y - 7/4*x^2*y^2 - 1/2*x*y^3 + 5/2*y^4: sos,r:=multivsos1(f,2,30,200,30,2,10,false,1);`
 
-                                                                                                            2
-                         2      2             395    2      2                  2                    2      y
- sos, r := [1/12, x y - y , 0, x , 5/36, x y, ----, y , 1, x  + 1/2 x y - 4/3 y , 1, 2/3 x y + 3/4 y , 1, ----], [7]
-                                              7056                                                         7
+`sos;`
+
+                                                                                                         2
+                      2      2             395    2      2                  2                    2      y
+        [1/12, x y - y , 0, x , 5/36, x y, ----, y , 1, x  + 1/2 x y - 4/3 y , 1, 2/3 x y + 3/4 y , 1, ----]
+                                           7056                                                         7
+
+`rlist;`
+                                                      [6, 1, 1]
 
 
 The first output sos is a list [c<sub>1</sub>,p<sub>1</sub>,...,c<sub>r</sub>,p<sub>r</sub>], where each c<sub>i</sub> is a rational number and each p<sub>i</sub> is a rational polynomial such that f admits the following weigthed SOS decomposition:
