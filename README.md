@@ -46,14 +46,15 @@ To compute a sums of squares decomposition of f, you can type:
 
 `f := x^4 + x^3*y - 7/4*x^2*y^2 - 1/2*x*y^3 + 5/2*y^4: sos,r:=multivsos1(f,2,30,200,30,2,10,false,1);`
 
-                                                                                                          2
-                       2      2             395    2      2                  2                    2      y
-  sos,r := [1/12, x y - y , 0, x , 5/36, x y, ----, y , 1, x  + 1/2 x y - 4/3 y , 1, 2/3 x y + 3/4 y , 1, ----], [7]
-                                            7056                                                         7
+                                                                                                            2
+                         2      2             395    2      2                  2                    2      y
+ sos, r := [1/12, x y - y , 0, x , 5/36, x y, ----, y , 1, x  + 1/2 x y - 4/3 y , 1, 2/3 x y + 3/4 y , 1, ----], [7]
+                                              7056                                                         7
 
-The first output sos is a list [c1,p1,...,cr,pr], where each ci is a rational number and each pi is a rational polynomial such that f admits the following weigthed SOS decomposition:
 
-`f  = c<sub>1</sub> p<sub>1</sub> <sup>2</sup> + ... + c<sub>r</sub> p<sub>r</sub> <sup>2</sup>`
+The first output sos is a list [c<sub>1</sub>,p<sub>1</sub>,...,c<sub>r</sub>,p<sub>r</sub>], where each c<sub>i</sub> is a rational number and each p<sub>i</sub> is a rational polynomial such that f admits the following weigthed SOS decomposition:
+
+f  = c<sub>1</sub> p<sub>1</sub> <sup>2</sup> + ... + c<sub>r</sub> p<sub>r</sub> <sup>2</sup>
 
 The second output r provides a list (with a single element in the unconstrained case) indicating the number of squares in the decomposition.
 
@@ -64,16 +65,15 @@ You can verify afterwards that this yields a valid nonnegativty certificate of f
 
 #### Constrained problems
 
-In the unconstrained case, the `multivsos1` procedure takes as input the same parameters as in the unconstrained case as well as:
+In the constrained case, the `multivsos1` procedure takes as input the same parameters as in the unconstrained case as well as:
 
 - the list of polynomial [g<sub>1</sub>,...,g<sub>m</sub>] encoding the set of inequality constraints g<sub>1</sub>(x) >= 0,...,g<sub>m</sub>(x) >= 0. For instance, the hypercube [-1,1]^2 is encoded by [1 - x^2, 1 - y^2] (default value = [])
 - an integer for the maximal degree of the SOS decomposition (default value = 0)
 
 Let us consider the polynomial f := -x^2  - 2 x y - 2 y^2 + 6 on the hypercube encoded by the list of two polynomial constraints g :=  [1 - x^2, 1 - y^2]. To compute an SOS decomposition with maximal degree of 2, you can execute the following commands:
 
-`f:=  -x^2  - 2 * x * y - 2 * y^2  + 6: g :=  [1 - x^2, 1 - y^2]: halfdegree := 1:`
+`f:=  -x^2  - 2 * x * y - 2 * y^2  + 6: g :=  [1 - x^2, 1 - y^2]: halfdegree := 1: sos, rlist := multivsos1(f,1,10,200,30,3,100,false,1,g,halfdegree):`
 
-sos, rlist := multivsos1(f,1,10,200,30,3,100,false,1,g,halfdegree):`
 
                    23853407      23     130657269                              y
     sos, rlist := [---------, 1, --, x, ---------, y, 1, 1/2442, 1, x - y, 1, ----, 1, 11/7, 1, 13/7], [6, 1, 1]
