@@ -3,7 +3,9 @@ Sums of squares decomposition of multivariate nonnegative polynomials
 
 ## Description
 `multivsos` is a Maple library for computation of sums of squares (SOS) decompositions of multivariate nonnegative polynomials with rational coefficients in the (un)-constrained case. 
+
 In the unconstrained case, `multivsos` implements a hybrid numeric-symbolic algorithm computing exact rational SOS decompositions for polynomials lying in the interior of the SOS cone. It computes an approximate SOS decomposition for a perturbation of the input polynomial with an arbitrary-precision semidefinite programming (SDP) solver. An exact SOS decomposition is obtained thanks to the perturbation terms. 
+
 In the constrained case, `multivsos` allows to compute weighted SOS decompositions for polynomials positive over basic compact semialgebraic sets.
 
 ## Installation instructions
